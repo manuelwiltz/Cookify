@@ -1,4 +1,4 @@
-# Cooking App
+# Cookify
 
 ## Organization
 #### Product Backlog
