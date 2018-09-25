@@ -3,6 +3,7 @@
 ## Organization
 #### Product Backlog
 Contains User Stories, quality requirements, functional requirement and error reports.
+
 [Product Backlog](https://docs.google.com/document/d/1p7RQpIbemkKJIE60laccw60MtYkcjahjQuLKavaloUQ/edit?usp=sharing)
 
 #### GUI Design
