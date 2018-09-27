@@ -1,8 +1,10 @@
 package at.a5bhitm.cookify.cookify;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,7 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+
+    private CardView recipeCard, ingredientsCard, drinksCard, settingsCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,47 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // defining Card
+        recipeCard = (CardView) findViewById(R.id.recipecardid);
+        ingredientsCard = (CardView) findViewById(R.id.ingredientscardid);
+        drinksCard = (CardView) findViewById(R.id.drinkscardid);
+        settingsCard = (CardView) findViewById(R.id.settingscardid);
+
+        // set listeners
+        recipeCard.setOnClickListener(this);
+        ingredientsCard.setOnClickListener(this);
+        drinksCard.setOnClickListener(this);
+        settingsCard.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i;
+
+        switch (v.getId()) {
+            case R.id.recipecardid : {
+                i = new Intent(this, Recipes.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.ingredientscardid : {
+                i = new Intent(this, Ingredients.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.drinkscardid : {
+                i = new Intent(this, Drinks.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.settingscardid : {
+                i = new Intent(this, Settings.class);
+                startActivity(i);
+                break;
+            }
+            default: break;
+        }
     }
 
     @Override
