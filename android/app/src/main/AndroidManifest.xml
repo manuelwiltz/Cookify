@@ -22,7 +22,7 @@
         <activity android:name=".Recipes" />
         <activity android:name=".Ingredients" />
         <activity android:name=".Drinks" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
     </application>
 
 </manifest>
