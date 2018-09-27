@@ -6,4 +6,20 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Dashboard -->
+    <string name="recipe">Rezepte</string>
+    <string name="recipe_long">Rezepte durchstöbern</string>
+
+    <string name="ingredients">Zutaten</string>
+    <string name="ingredients_long">Rezepte basierend auf Zutaten.</string>
+
+    <string name="drinks">Drinks</string>
+    <string name="drinks_long">Smoothies, Cocktails, ...</string>
+
+    <string name="commingSoon">Comming soon</string>
+    <string name="commingSoon_long">Dieses Feature ist nicht verfügbar.</string>
+
+    <string name="settings">Einstellungen</string>
+    <string name="settings_long">Einstellungen verwalten.</string>
 </resources>
