@@ -1,10 +1,7 @@
-package at.a5bhitm.cookify.cookify;
+package at.a5bhitm.cookify.cookify.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -16,10 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import at.a5bhitm.cookify.cookify.R;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    private CardView recipeCard, ingredientsCard, drinksCard, settingsCard;
+    private CardView recipeCard, ingredientsCard, drinksCard, favoriteCard, settingsCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +40,14 @@ public class MainActivity extends AppCompatActivity
         recipeCard = (CardView) findViewById(R.id.recipecardid);
         ingredientsCard = (CardView) findViewById(R.id.ingredientscardid);
         drinksCard = (CardView) findViewById(R.id.drinkscardid);
+        favoriteCard = (CardView) findViewById(R.id.favoritecardid);
         settingsCard = (CardView) findViewById(R.id.settingscardid);
 
         // set listeners
         recipeCard.setOnClickListener(this);
         ingredientsCard.setOnClickListener(this);
         drinksCard.setOnClickListener(this);
+        favoriteCard.setOnClickListener(this);
         settingsCard.setOnClickListener(this);
     }
 
@@ -55,27 +56,33 @@ public class MainActivity extends AppCompatActivity
         Intent i;
 
         switch (v.getId()) {
-            case R.id.recipecardid : {
-                i = new Intent(this, Recipes.class);
+            case R.id.recipecardid: {
+                i = new Intent(this, RecipesActivity.class);
                 startActivity(i);
                 break;
             }
-            case R.id.ingredientscardid : {
-                i = new Intent(this, Ingredients.class);
+            case R.id.ingredientscardid: {
+                i = new Intent(this, IngredientsActivity.class);
                 startActivity(i);
                 break;
             }
-            case R.id.drinkscardid : {
-                i = new Intent(this, Drinks.class);
+            case R.id.drinkscardid: {
+                i = new Intent(this, DrinksActivity.class);
                 startActivity(i);
                 break;
             }
-            case R.id.settingscardid : {
-                i = new Intent(this, Settings.class);
+            case R.id.favoritecardid: {
+                i = new Intent(this, FavoriteActivity.class);
                 startActivity(i);
                 break;
             }
-            default: break;
+            case R.id.settingscardid: {
+                i = new Intent(this, SettingsActivity.class);
+                startActivity(i);
+                break;
+            }
+            default:
+                break;
         }
     }
 
@@ -114,17 +121,26 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        Intent i;
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        if (id == R.id.nav_recipe) {
+            i = new Intent(this, RecipesActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_ingredients) {
+            i = new Intent(this, IngredientsActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_drinks) {
+            i = new Intent(this, DrinksActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_favorite) {
+            i = new Intent(this, FavoriteActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_settings) {
+            i = new Intent(this, SettingsActivity.class);
+            startActivity(i);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

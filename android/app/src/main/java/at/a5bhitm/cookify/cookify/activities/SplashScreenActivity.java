@@ -1,9 +1,11 @@
-package at.a5bhitm.cookify.cookify;
+package at.a5bhitm.cookify.cookify.activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import at.a5bhitm.cookify.cookify.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

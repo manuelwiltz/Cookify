@@ -1,9 +1,11 @@
-package at.a5bhitm.cookify.cookify;
+package at.a5bhitm.cookify.cookify.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Ingredients extends AppCompatActivity {
+import at.a5bhitm.cookify.cookify.R;
+
+public class IngredientsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
