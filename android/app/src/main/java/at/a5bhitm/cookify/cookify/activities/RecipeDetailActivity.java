@@ -1,8 +1,11 @@
 package at.a5bhitm.cookify.cookify.activities;
 
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import at.a5bhitm.cookify.cookify.R;
+import at.a5bhitm.cookify.cookify.adapters.StepViewPagerAdapter;
 
 public class RecipeDetailActivity extends AppCompatActivity {
 
@@ -28,6 +32,16 @@ public class RecipeDetailActivity extends AppCompatActivity {
         String time_sum = getIntent().getExtras().getString("time_sum");
         String time_cook = getIntent().getExtras().getString("time_cook");
         String image_url = getIntent().getExtras().getString("thumbnail_url");
+
+        FloatingActionButton fab = findViewById(R.id.recipe_detail_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Switch to Card View
+                Intent i = new Intent(view.getContext(), StepActivity.class);
+                startActivity(i);
+            }
+        });
 
         CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.recipe_detail_collapsingtoolbar_id);
         collapsingToolbarLayout.setTitleEnabled(true);

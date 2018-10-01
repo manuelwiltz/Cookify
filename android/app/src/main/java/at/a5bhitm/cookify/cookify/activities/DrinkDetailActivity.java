@@ -1,9 +1,12 @@
 package at.a5bhitm.cookify.cookify.activities;
 
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +33,15 @@ public class DrinkDetailActivity extends AppCompatActivity {
         String time = getIntent().getExtras().getString("time");
         String image_url = getIntent().getExtras().getString("thumbnail_url");
 
-        time = "10 min";
+        FloatingActionButton fab = findViewById(R.id.recipe_detail_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Switch to Card View
+                Intent i = new Intent(view.getContext(), StepActivity.class);
+                startActivity(i);
+            }
+        });
 
         CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.drink_detail_collapsingtoolbar_id);
         collapsingToolbarLayout.setTitleEnabled(true);

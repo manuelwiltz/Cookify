@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activities.DrinkDetailActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/drink_detail_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:src="@drawable/ic_play_arrow_black_24dp"
+        android:layout_margin="16dp" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/drink_detail_appbarlayout_id"
         android:layout_width="match_parent"
