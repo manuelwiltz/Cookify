@@ -1,0 +1,23 @@
+image: maven:3.5.0-jdk-8
+
+buildAndTest:
+  script:
+    - mvn verify --batch-mode
+  artifacts:
+    paths:
+      - target/*
+    expire_in: 5min
+
+result:
+  script:
+    - mv target/*.jar .
+  artifacts:
+    paths:
+      - *.jar
+    expire_in: 1d
+  only:
+    - tags
+
+    
+variables:
+  GIT_SSL_NO_VERIFY: "1"
