@@ -2,7 +2,7 @@ image: maven:3.5.0-jdk-8
 
 buildAndTest:
   script:
-    - mvn verify --batch-mode
+    - backend/mvn verify --batch-mode
   artifacts:
     paths:
       - target/*
