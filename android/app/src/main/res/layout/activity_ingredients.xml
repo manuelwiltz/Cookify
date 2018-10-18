@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.IngredientsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <CheckBox
+        android:id="@+id/ingredients_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:focusable="false"
+        android:textColor="@color/colorPrimary"
+        android:focusableInTouchMode="false"
+        android:text="checkbox"/>
+
+    <TextView
+        android:id="@+id/ingredients_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ingredients_checkBox"
+        android:layout_alignBottom="@+id/ingredients_checkBox"
+        android:layout_toRightOf="@+id/ingredients_checkBox"
+        android:text="textview"
+        android:textStyle="bold"
+        android:textColor="@color/cardview_dark_background"/>
+
+</RelativeLayout>
