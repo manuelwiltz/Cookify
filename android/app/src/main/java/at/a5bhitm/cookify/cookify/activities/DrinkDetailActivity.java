@@ -33,7 +33,7 @@ public class DrinkDetailActivity extends AppCompatActivity {
         String time = getIntent().getExtras().getString("time");
         String image_url = getIntent().getExtras().getString("thumbnail_url");
 
-        FloatingActionButton fab = findViewById(R.id.recipe_detail_fab);
+        FloatingActionButton fab = findViewById(R.id.drink_detail_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

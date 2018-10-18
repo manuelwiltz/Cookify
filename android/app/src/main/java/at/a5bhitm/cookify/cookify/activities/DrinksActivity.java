@@ -4,14 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -23,9 +20,7 @@ import java.util.List;
 
 import at.a5bhitm.cookify.cookify.R;
 import at.a5bhitm.cookify.cookify.adapters.RecycleViewAdapterDrink;
-import at.a5bhitm.cookify.cookify.adapters.RecycleViewAdapterRecipe;
 import at.a5bhitm.cookify.cookify.entities.Drink;
-import at.a5bhitm.cookify.cookify.entities.Recipe;
 
 public class DrinksActivity extends AppCompatActivity {
 

@@ -7,12 +7,22 @@ public class Ingredient {
     private String amount;
     private Boolean selected = false;
 
+    public Ingredient() {
+    }
+
     public Ingredient(String name, String amount) {
         this.name = name;
         this.amount = amount;
     }
 
     public Ingredient(String name, String amount, Boolean selected) {
+        this.name = name;
+        this.amount = amount;
+        this.selected = selected;
+    }
+
+    public Ingredient(String id, String name, String amount, Boolean selected) {
+        this.id = id;
         this.name = name;
         this.amount = amount;
         this.selected = selected;
