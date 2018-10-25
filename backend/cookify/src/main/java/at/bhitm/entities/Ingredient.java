@@ -10,6 +10,9 @@ public class Ingredient {
     private String amount;
     private Boolean selected = false;
 
+    public Ingredient() {
+    }
+
     public Ingredient(String name, String amount) {
         this.name = name;
         this.amount = amount;
