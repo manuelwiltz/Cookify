@@ -9,6 +9,12 @@
 
     <string name="url">10.0.75.1</string>
 
+    <!-- Searchbar -->
+    <string name="search_recipes">Rezepte durchsuchen</string>
+    <string name="search_drinks">Drinks durchsuchen</string>
+    <string name="search_favorites">Favoriten durchsuchen</string>
+    <string name="search_ingredients">Zutaten durchsuchen</string>
+
     <!-- Dashboard -->
     <string name="recipe">Rezepte</string>
     <string name="recipe_long">Rezepte durchstöbern</string>

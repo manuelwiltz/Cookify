@@ -29,7 +29,7 @@ import at.a5bhitm.cookify.cookify.entities.Ingredient;
 
 public class IngredientsActivity extends AppCompatActivity {
 
-    private final String JSON_URL = "http://192.168.0.3:8080/ingredient";
+    private final String JSON_URL = "http://172.18.119.157:8080/ingredient";
     private JsonArrayRequest request;
     private RequestQueue requestQueue;
     private List<Ingredient> ingredients;
@@ -104,12 +104,12 @@ public class IngredientsActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(IngredientsActivity.this);
         requestQueue.add(request);
 
-        ingredients = new ArrayList<Ingredient>() {{
+        /*ingredients = new ArrayList<Ingredient>() {{
             add(new Ingredient("1", "Butter", "1", false));
             add(new Ingredient("2", "Käse", "1", false));
             add(new Ingredient("3", "Nudeln", "1", false));
             add(new Ingredient("4", "Schlagobers", "1", false));
-        }};
+        }};*/
 
         setUpRecyclerView(ingredients);
     }

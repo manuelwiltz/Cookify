@@ -21,6 +21,11 @@ public class DrinkController {
         return repository.findAll();
     }
 
+    @GetMapping("/getByTitle/{title}")
+    public List<Drink> findByTitleLike(@PathVariable String title) {
+        return repository.findByTitleLike(title);
+    }
+
     @GetMapping("/insertTestData")
     public List<Drink> insertTestData() {
 
