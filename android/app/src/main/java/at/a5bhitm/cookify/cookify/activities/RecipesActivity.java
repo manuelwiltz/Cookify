@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -59,7 +60,7 @@ public class RecipesActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!search_recipes.getText().equals("")) {
+                if (!search_recipes.getText().toString().equalsIgnoreCase("")) {
                     search_request = new JsonArrayRequest(JSON_URL + "/getByTitle/" + search_recipes.getText(), new Response.Listener<JSONArray>() {
                         @Override
                         public void onResponse(JSONArray response) {
@@ -98,6 +99,7 @@ public class RecipesActivity extends AppCompatActivity {
                     requestQueue = Volley.newRequestQueue(RecipesActivity.this);
                     requestQueue.add(search_request);
                 } else {
+                    recipes = new ArrayList<>();
                     jsonrequest();
                 }
             }

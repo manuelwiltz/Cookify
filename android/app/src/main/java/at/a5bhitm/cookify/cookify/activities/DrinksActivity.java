@@ -57,7 +57,7 @@ public class DrinksActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!search_drinks.getText().equals("")) {
+                if (!search_drinks.getText().toString().equalsIgnoreCase("")) {
                     search_request = new JsonArrayRequest(JSON_URL + "/getByTitle/" + search_drinks.getText(), new Response.Listener<JSONArray>() {
                         @Override
                         public void onResponse(JSONArray response) {
@@ -95,6 +95,7 @@ public class DrinksActivity extends AppCompatActivity {
                     requestQueue = Volley.newRequestQueue(DrinksActivity.this);
                     requestQueue.add(search_request);
                 } else {
+                    drinks = new ArrayList<>();
                     jsonrequest();
                 }
             }

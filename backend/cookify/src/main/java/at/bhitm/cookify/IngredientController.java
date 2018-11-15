@@ -19,6 +19,11 @@ public class IngredientController {
         return repository.findAll();
     }
 
+    @GetMapping("/getByName/{name}")
+    public List<Ingredient> findByTitleLike(@PathVariable String name) {
+        return repository.findByNameLike(name);
+    }
+
     @GetMapping("/insertTestData")
     public List<Ingredient> insertTestData() {
 

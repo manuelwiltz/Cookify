@@ -13,14 +13,24 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import at.a5bhitm.cookify.cookify.R;
-import at.a5bhitm.cookify.cookify.adapters.StepViewPagerAdapter;
 
 public class RecipeDetailActivity extends AppCompatActivity {
+
+    private TextView favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_detail);
+
+        favorite = findViewById(R.id.recipe_detail_favorite);
+
+        favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Check if Text is unfilled icon
+            }
+        });
 
         // hide the default ActionBar
         getSupportActionBar().hide();

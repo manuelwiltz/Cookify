@@ -23,12 +23,12 @@ import at.a5bhitm.cookify.cookify.entities.Recipe;
 public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAdapterRecipe.MyViewHolder> {
 
     private Context context;
-    private List<Recipe> data;
+    private List<Recipe> recipes;
     RequestOptions option;
 
     public RecycleViewAdapterRecipe(Context context, List<Recipe> data) {
         this.context = context;
-        this.data = data;
+        this.recipes = data;
 
         option = new RequestOptions().centerCrop().placeholder(R.drawable.listview_loading_shape).error(R.drawable.listview_loading_shape);
     }
@@ -45,13 +45,13 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
             @Override
             public void onClick(View v) {
                 Intent i  = new Intent(context, RecipeDetailActivity.class);
-                i.putExtra("id", data.get(viewHolder.getAdapterPosition()).getId());
-                i.putExtra("title", data.get(viewHolder.getAdapterPosition()).getTitle());
-                i.putExtra("subtitle", data.get(viewHolder.getAdapterPosition()).getSubtitle());
-                i.putExtra("thumbnail_url", data.get(viewHolder.getAdapterPosition()).getThumbnail_url());
-                i.putExtra("time_sum", data.get(viewHolder.getAdapterPosition()).getTime_sum());
-                i.putExtra("time_cook", data.get(viewHolder.getAdapterPosition()).getTime_cook());
-                i.putExtra("description", data.get(viewHolder.getAdapterPosition()).getDescription());
+                i.putExtra("id", recipes.get(viewHolder.getAdapterPosition()).getId());
+                i.putExtra("title", recipes.get(viewHolder.getAdapterPosition()).getTitle());
+                i.putExtra("subtitle", recipes.get(viewHolder.getAdapterPosition()).getSubtitle());
+                i.putExtra("thumbnail_url", recipes.get(viewHolder.getAdapterPosition()).getThumbnail_url());
+                i.putExtra("time_sum", recipes.get(viewHolder.getAdapterPosition()).getTime_sum());
+                i.putExtra("time_cook", recipes.get(viewHolder.getAdapterPosition()).getTime_cook());
+                i.putExtra("description", recipes.get(viewHolder.getAdapterPosition()).getDescription());
 
                 context.startActivity(i);
             }
@@ -62,16 +62,16 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.tv_title.setText(data.get(position).getTitle());
-        holder.tv_time_sum.setText(data.get(position).getTime_sum());
-        holder.tv_subtitle.setText(data.get(position).getSubtitle());
+        holder.tv_title.setText(recipes.get(position).getTitle());
+        holder.tv_time_sum.setText(recipes.get(position).getTime_sum());
+        holder.tv_subtitle.setText(recipes.get(position).getSubtitle());
 
-        Glide.with(context).load(data.get(position).getThumbnail_url()).apply(option).into(holder.img_thumbnail);
+        Glide.with(context).load(recipes.get(position).getThumbnail_url()).apply(option).into(holder.img_thumbnail);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return recipes.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
