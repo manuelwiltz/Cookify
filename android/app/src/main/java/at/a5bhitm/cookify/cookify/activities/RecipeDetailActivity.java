@@ -28,7 +28,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check if Text is unfilled icon
+                // Check if Text is unfilled iconw
             }
         });
 
