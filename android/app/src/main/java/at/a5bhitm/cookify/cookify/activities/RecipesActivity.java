@@ -80,8 +80,6 @@ public class RecipesActivity extends AppCompatActivity {
                                     recipe.setDescription(jsonObject.getString("description"));
                                     recipes.add(recipe);
 
-                                    Log.d("RecipeActivity", "sdkjfhsdjfkh");
-
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
