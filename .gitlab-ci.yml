@@ -12,9 +12,3 @@ buildAndTest:
 variables:
   GIT_SSL_NO_VERIFY: "1"
 
-
-    
-variables:
-  ANDROID_COMPILE_SDK: "28"
-  ANDROID_BUILD_TOOLS: "28.0.2"
-  ANDROID_SDK_TOOLS:   "4333796"
