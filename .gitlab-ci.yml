@@ -2,10 +2,10 @@ image: maven:3.5.0-jdk-8
 
 buildAndTest:
   script:
-    - backend/mvn verify --batch-mode
+    - backend/cookify/mvn verify --batch-mode
   artifacts:
     paths:
-      - backend/target/*
+      - backend/cookify/target/*
     expire_in: 5min
 
     
