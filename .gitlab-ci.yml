@@ -5,7 +5,7 @@ buildAndTest:
     - backend/mvn verify --batch-mode
   artifacts:
     paths:
-      - target/*
+      - backend/target/*
     expire_in: 5min
 
     
@@ -15,4 +15,6 @@ variables:
 
     
 variables:
-  GIT_SSL_NO_VERIFY: "1"
+  ANDROID_COMPILE_SDK: "28"
+  ANDROID_BUILD_TOOLS: "28.0.2"
+  ANDROID_SDK_TOOLS:   "4333796"
