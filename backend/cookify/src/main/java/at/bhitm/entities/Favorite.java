@@ -2,7 +2,9 @@ package at.bhitm.entities;
 
 import org.springframework.data.annotation.Id;
 
-public class Favorite {
+import java.io.Serializable;
+
+public class Favorite implements Serializable {
 
     @Id
     private String id;

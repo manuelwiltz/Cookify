@@ -1,6 +1,8 @@
 package at.a5bhitm.cookify.cookify.entities;
 
-public class Favorite {
+import java.io.Serializable;
+
+public class Favorite implements Serializable {
 
     private String id;
 
@@ -12,6 +14,11 @@ public class Favorite {
 
     public Favorite(String id, String user_id, String recipe_id) {
         this.id = id;
+        this.user_id = user_id;
+        this.recipe_id = recipe_id;
+    }
+
+    public Favorite(String user_id, String recipe_id) {
         this.user_id = user_id;
         this.recipe_id = recipe_id;
     }
