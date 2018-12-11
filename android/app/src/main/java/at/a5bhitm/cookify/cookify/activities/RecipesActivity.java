@@ -31,7 +31,7 @@ import at.a5bhitm.cookify.cookify.entities.Recipe;
 
 public class RecipesActivity extends AppCompatActivity {
 
-    private final String JSON_URL = "http://172.18.119.157:8080/recipe";
+    private final String JSON_URL = "http://192.168.0.4:8080/recipe";
     private JsonArrayRequest request;
     private JsonArrayRequest search_request;
     private RequestQueue requestQueue;

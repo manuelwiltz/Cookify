@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import at.a5bhitm.cookify.cookify.entities.Favorite;
+import at.a5bhitm.cookify.cookify.entities.Ingredient;
 
 public class RecipeDatabaseHelper extends SQLiteOpenHelper {
 
@@ -22,11 +23,17 @@ public class RecipeDatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Cookify";
 
     // Table name: Note.
-    private static final String TABLE_FAVORITE = "Favorite";
+    private static final String TABLE_RECIPE = "Recipe";
 
-    private static final String COLUMN_FAVORITE_ID = "Id";
-    private static final String COLUMN_FAVORITE_USERID = "User_Id";
-    private static final String COLUMN_FAVORITE_RECIPEID = "Recipe_Id";
+    private static final String COLUMN_RECIPE_ID = "Id";
+    private static final String COLUMN_RECIPE_TITLE = "title";
+    private static final String COLUMN_RECIPE_SUBTITLE = "subtitle";
+    private static final String COLUMN_RECIPE_THUMBNAIL_URL = "thumbnail_url";
+    private static final List<Ingredient> COLUMN_RECIPE_INGREDIENTS = new ArrayList<>();
+    private static final String COLUMN_RECIPE_TIME_SUM = "time_sum";
+    private static final String COLUMN_RECIPE_TIME_COOK = "time_cook";
+    private static final String COLUMN_RECIPE_DESCRIPTION = "description";
+    private static final List<String> COLUMN_RECIPE_STEPS = new ArrayList<>();
 
     public RecipeDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,18 +43,18 @@ public class RecipeDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Script.
-        String script = "CREATE TABLE " + TABLE_FAVORITE + "("
-                + COLUMN_FAVORITE_ID + " INTEGER PRIMARY KEY," + COLUMN_FAVORITE_USERID + " TEXT,"
+        /*String script = "CREATE TABLE " + TABLE_RECIPE + "("
+                + COLUMN_RECIPE_ID + " INTEGER PRIMARY KEY," + COLUMN_FAVORITE_USERID + " TEXT,"
                 + COLUMN_FAVORITE_RECIPEID + " TEXT" + ")";
         // Execute Script.
-        db.execSQL(script);
+        db.execSQL(script);*/
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RECIPE);
 
         // Create tables again
         onCreate(db);
@@ -57,36 +64,36 @@ public class RecipeDatabaseHelper extends SQLiteOpenHelper {
     // If table has no data
     // default, Insert 2 records.
     public void createDefaultNotesIfNeed()  {
-        int count = this.getFavoritesCount();
+        int count = this.getRecipeCount();
         if(count ==0 ) {
             Favorite favorite = new Favorite("1", "1");
             Favorite favorite1 = new Favorite("2", "2");
-            this.addFavorite(favorite);
-            this.addFavorite(favorite1);
+            this.addRecipe(favorite);
+            this.addRecipe(favorite1);
         }
     }
 
 
-    public void addFavorite(Favorite favorite) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void addRecipe(Favorite favorite) {
+        /*SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_FAVORITE_USERID, favorite.getUser_id());
         values.put(COLUMN_FAVORITE_RECIPEID, favorite.getRecipe_id());
 
         // Inserting Row
-        db.insert(TABLE_FAVORITE, null, values);
+        db.insert(TABLE_RECIPE, null, values);
 
         // Closing database connection
-        db.close();
+        db.close();*/
     }
 
 
-    public Favorite getFavorite(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
+    public /*Favorite*/ void getRecipe(int id) {
+        /*SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_FAVORITE, new String[] {COLUMN_FAVORITE_ID,
-                        COLUMN_FAVORITE_USERID, COLUMN_FAVORITE_RECIPEID}, COLUMN_FAVORITE_ID + "=?",
+        Cursor cursor = db.query(TABLE_RECIPE, new String[] {COLUMN_RECIPE_ID,
+                        COLUMN_FAVORITE_USERID, COLUMN_FAVORITE_RECIPEID}, COLUMN_RECIPE_ID + "=?",
                 new String[] { String.valueOf(id) }, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
@@ -94,13 +101,13 @@ public class RecipeDatabaseHelper extends SQLiteOpenHelper {
         Favorite favorite = new Favorite(cursor.getString(0),
                 cursor.getString(1), cursor.getString(2));
         // return note
-        return favorite;
+        return favorite;*/
     }
 
 
-    public List<Favorite> getAllFavorites() {
+    public List<Favorite> getAllRecipes() {
         List<Favorite> favorites = new ArrayList<Favorite>();
-        String selectQuery = "SELECT  * FROM " + TABLE_FAVORITE;
+        String selectQuery = "SELECT  * FROM " + TABLE_RECIPE;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -120,8 +127,8 @@ public class RecipeDatabaseHelper extends SQLiteOpenHelper {
         return favorites;
     }
 
-    public int getFavoritesCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_FAVORITE;
+    public int getRecipeCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_RECIPE;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
 
@@ -134,20 +141,21 @@ public class RecipeDatabaseHelper extends SQLiteOpenHelper {
 
 
     public int updateFavorite(Favorite favorite) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        /*SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_FAVORITE_USERID, favorite.getUser_id());
         values.put(COLUMN_FAVORITE_RECIPEID, favorite.getRecipe_id());
 
         // updating row
-        return db.update(TABLE_FAVORITE, values, COLUMN_FAVORITE_ID + " = ?",
-                new String[]{String.valueOf(favorite.getId())});
+        return db.update(TABLE_RECIPE, values, COLUMN_RECIPE_ID + " = ?",
+                new String[]{String.valueOf(favorite.getId())});*/
+        return 0;
     }
 
-    public void deleteFavorite(Favorite favorite) {
+    public void deleteRecipe(Favorite favorite) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_FAVORITE, COLUMN_FAVORITE_ID + " = ?",
+        db.delete(TABLE_RECIPE, COLUMN_RECIPE_ID + " = ?",
                 new String[] { String.valueOf(favorite.getId()) });
         db.close();
     }

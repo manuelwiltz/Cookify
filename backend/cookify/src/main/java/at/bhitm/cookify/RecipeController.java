@@ -21,6 +21,11 @@ public class RecipeController {
         return repository.findAll();
     }
 
+    @GetMapping("/getById/{id}")
+    public Recipe findById(@PathVariable String id) {
+        return repository.findById(id).orElse(null);
+    }
+
     @GetMapping("/getByTitle/{title}")
     public List<Recipe> findByTitleLike(@PathVariable String title) {
         return repository.findByTitleLike(title);

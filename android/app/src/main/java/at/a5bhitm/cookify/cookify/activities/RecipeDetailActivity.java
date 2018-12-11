@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import at.a5bhitm.cookify.cookify.R;
+import at.a5bhitm.cookify.cookify.entities.Favorite;
+import at.a5bhitm.cookify.cookify.sqLiteHelper.FavoriteDatabaseHelper;
 
 public class RecipeDetailActivity extends AppCompatActivity {
 
@@ -28,7 +31,10 @@ public class RecipeDetailActivity extends AppCompatActivity {
         favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check if Text is unfilled iconw
+                Toast.makeText(RecipeDetailActivity.this, "Added to favorite!", Toast.LENGTH_LONG).show();
+
+                FavoriteDatabaseHelper favoriteDatabaseHelper = new FavoriteDatabaseHelper(RecipeDetailActivity.this);
+                favoriteDatabaseHelper.addFavorite(new Favorite("0", getIntent().getExtras().getString("id")));
             }
         });
 
@@ -57,9 +63,9 @@ public class RecipeDetailActivity extends AppCompatActivity {
         collapsingToolbarLayout.setTitleEnabled(true);
 
         TextView tv_name = findViewById(R.id.recipe_detail_title);
-        TextView tv_subtitle = findViewById(R.id.recipe_detail_subtitle) ;
+        TextView tv_subtitle = findViewById(R.id.recipe_detail_subtitle);
         TextView tv_description = findViewById(R.id.recipe_detail_description);
-        TextView tv_time_sum  = findViewById(R.id.recipe_detail_time_sum) ;
+        TextView tv_time_sum = findViewById(R.id.recipe_detail_time_sum);
         ImageView img = findViewById(R.id.recipe_detail_thumbnail);
 
         tv_name.setText(name);
