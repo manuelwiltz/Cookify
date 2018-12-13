@@ -106,11 +106,13 @@ public class RecipeController {
 
     @PostMapping()
     public Recipe insertRecipe(@RequestBody Recipe recipe) {
+        insertIngredients(recipe);
         return repository.save(recipe);
     }
 
     @PutMapping()
     public Recipe updateRecipe(@RequestBody Recipe recipe) {
+        insertIngredients(recipe);
         Recipe r = repository.findById(recipe.getId()).orElse(null);
         if (r == null) {
             //return new NotFoundException();
@@ -122,6 +124,20 @@ public class RecipeController {
     public void deleteRecipe(@PathVariable String id) {
         Recipe recipeFromDb = repository.findById(id).orElse(null);
         repository.delete(recipeFromDb);
+    }
+
+    public void insertIngredients(Recipe recipe) {
+        if (recipe.getIngredients() != null) {
+            IngredientController ic = new IngredientController();
+            List<Ingredient> newIngredients = recipe.getIngredients();
+            List<Ingredient> oldIngredients = ic.findAll();
+
+            for (int i = 0; i < newIngredients.size(); i++) {
+                if (!newIngredients.contains(newIngredients.get(i))) {
+                    ic.insertIngredient(newIngredients.get(i));
+                }
+            }
+        }
     }
 
 }

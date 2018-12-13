@@ -30,13 +30,16 @@ import at.a5bhitm.cookify.cookify.sqLiteHelper.FavoriteDatabaseHelper;
 
 public class FavoriteActivity extends AppCompatActivity {
 
-    private final String JSON_URL = "http://192.168.0.4:8080/recipe";
-    private final String JSON_URL_ID = "http://192.168.0.4:8080/recipe/getById/";
+    //172.18.119.157
+    //192.168.0.4
+    private final String JSON_URL = "http://172.18.119.157:8080/recipe";
+    private final String JSON_URL_ID = "http://172.18.119.157:8080/recipe/getById/";
     private JsonRequest request;
     private RequestQueue requestQueue;
     private List<Recipe> recipes;
     private List<Favorite> favorites;
     private RecyclerView recyclerView;
+    private int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +63,12 @@ public class FavoriteActivity extends AppCompatActivity {
         FavoriteDatabaseHelper favoriteDatabaseHelper = new FavoriteDatabaseHelper(this);
         this.favorites = favoriteDatabaseHelper.getAllFavorites();
 
-        for (int i = 0; i < this.favorites.size(); i++) {
+        for (this.i = 0; i < this.favorites.size(); i++) {
             jsonrequest(this.favorites.get(i).getRecipe_id());
-            setUpRecyclerView(recipes);
-
-            requestQueue = Volley.newRequestQueue(FavoriteActivity.this);
-            requestQueue.add(request);
         }
+
+        setUpRecyclerView(recipes);
+
     }
 
     private void jsonrequest(String recipe_id) throws Exception {
@@ -90,8 +92,14 @@ public class FavoriteActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
+                        if (favorites.size() == i) {
+                            setUpRecyclerView(recipes);
+                        }
+
                     }
                 }, new Response.ErrorListener() {
+
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -99,6 +107,9 @@ public class FavoriteActivity extends AppCompatActivity {
                         Log.v("FAVORITE_ACTIVITY", "ERROR Fetsching");
                     }
                 });
+
+        requestQueue = Volley.newRequestQueue(FavoriteActivity.this);
+        requestQueue.add(request);
 
 
         /*request = new JsonObjectRequest(JSON_URL_ID + recipe_id, new Response.Listener<JSONObject>() {

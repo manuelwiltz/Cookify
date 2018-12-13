@@ -19,7 +19,6 @@ import java.util.List;
 import at.a5bhitm.cookify.cookify.R;
 import at.a5bhitm.cookify.cookify.activities.RecipeDetailActivity;
 import at.a5bhitm.cookify.cookify.entities.Drink;
-import at.a5bhitm.cookify.cookify.entities.Recipe;
 
 public class RecycleViewAdapterDrink extends RecyclerView.Adapter<RecycleViewAdapterDrink.MyViewHolder> {
 
