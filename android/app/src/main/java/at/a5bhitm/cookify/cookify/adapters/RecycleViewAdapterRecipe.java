@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
+import java.util.Collections;
 import java.util.List;
 
 import at.a5bhitm.cookify.cookify.activities.RecipeDetailActivity;
@@ -52,6 +54,18 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
                 i.putExtra("time_sum", recipes.get(viewHolder.getAdapterPosition()).getTime_sum());
                 i.putExtra("time_cook", recipes.get(viewHolder.getAdapterPosition()).getTime_cook());
                 i.putExtra("description", recipes.get(viewHolder.getAdapterPosition()).getDescription());
+
+                List<String> stringList = recipes.get(viewHolder.getAdapterPosition()).getSteps();
+                String[] strings = new String[stringList.size()];
+                for (int j = 0; j < stringList.size(); j++) {
+                    strings[j] = stringList.get(j);
+                }
+                i.putExtra("steps", strings);
+
+                /*Log.d("GEEHHT NEEED", Integer.toString(recipes.get(viewHolder.getAdapterPosition()).getSteps().size()));
+                for (int j = 0; j < recipes.get(viewHolder.getAdapterPosition()).getSteps().size(); j++) {
+                    Log.d("STEPS", "Steps: " + j);
+                }*/
 
                 context.startActivity(i);
             }

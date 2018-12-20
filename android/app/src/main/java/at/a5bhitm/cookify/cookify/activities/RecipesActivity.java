@@ -79,6 +79,7 @@ public class RecipesActivity extends AppCompatActivity {
                                     recipe.setTime_sum(jsonObject.getString("time_sum"));
                                     recipe.setTime_cook(jsonObject.getString("time_cook"));
                                     recipe.setDescription(jsonObject.getString("description"));
+                                    //recipe.setSteps((List<String>) jsonObject.getJSONArray("steps"));
                                     recipes.add(recipe);
 
                                 } catch (JSONException e) {
@@ -130,6 +131,14 @@ public class RecipesActivity extends AppCompatActivity {
                         recipe.setTime_sum(jsonObject.getString("time_sum"));
                         recipe.setTime_cook(jsonObject.getString("time_cook"));
                         recipe.setDescription(jsonObject.getString("description"));
+
+                        JSONArray array = jsonObject.getJSONArray("steps");
+                        List<String> helpSteps = new ArrayList<>(array.length());
+                        for (int j = 0; j < array.length(); j++) {
+                            helpSteps.add(array.getString(j));
+                        }
+
+                        recipe.setSteps(helpSteps);
                         recipes.add(recipe);
 
                     } catch (JSONException e) {

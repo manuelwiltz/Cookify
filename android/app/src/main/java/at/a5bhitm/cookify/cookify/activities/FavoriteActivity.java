@@ -111,42 +111,6 @@ public class FavoriteActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(FavoriteActivity.this);
         requestQueue.add(request);
 
-
-        /*request = new JsonObjectRequest(JSON_URL_ID + recipe_id, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONArray response) {
-
-                JSONObject jsonObject = null;
-
-                try {
-                    jsonObject = new JSONObject(response);
-                    Recipe recipe = new Recipe();
-                    recipe.setId(jsonObject.getString("id"));
-                    recipe.setTitle(jsonObject.getString("title"));
-                    recipe.setSubtitle(jsonObject.getString("subtitle"));
-                    recipe.setThumbnail_url(jsonObject.getString("thumbnail_url"));
-                    recipe.setTime_sum(jsonObject.getString("time_sum"));
-                    recipe.setTime_cook(jsonObject.getString("time_cook"));
-                    recipe.setDescription(jsonObject.getString("description"));
-                    recipes.add(recipe);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                setUpRecyclerView(recipes);
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-
-        requestQueue = Volley.newRequestQueue(FavoriteActivity.this);
-        requestQueue.add(request);*/
-
     }
 
     private void setUpRecyclerView(List<Recipe> recipe) {

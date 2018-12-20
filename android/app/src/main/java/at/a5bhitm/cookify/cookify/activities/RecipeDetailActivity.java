@@ -48,13 +48,16 @@ public class RecipeDetailActivity extends AppCompatActivity {
         String time_sum = getIntent().getExtras().getString("time_sum");
         String time_cook = getIntent().getExtras().getString("time_cook");
         String image_url = getIntent().getExtras().getString("thumbnail_url");
+        final String[] steps = getIntent().getExtras().getStringArray("steps");
 
+        // FloatingActionButton
         FloatingActionButton fab = findViewById(R.id.recipe_detail_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Switch to Card View
                 Intent i = new Intent(view.getContext(), StepActivity.class);
+                i.putExtra("steps", steps);
                 startActivity(i);
             }
         });
