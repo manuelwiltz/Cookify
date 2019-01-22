@@ -32,8 +32,8 @@ public class FavoriteActivity extends AppCompatActivity {
 
     //172.18.119.157
     //192.168.0.4
-    private final String JSON_URL = "http://172.18.119.157:8080/recipe";
-    private final String JSON_URL_ID = "http://172.18.119.157:8080/recipe/getById/";
+    private final String JSON_URL = "http://192.168.0.4:8080/recipe";
+    private final String JSON_URL_ID = "http://192.168.0.4:8080/recipe/getById/";
     private JsonRequest request;
     private RequestQueue requestQueue;
     private List<Recipe> recipes;

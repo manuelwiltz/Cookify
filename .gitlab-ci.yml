@@ -1,6 +1,11 @@
 image: maven:3.5.0-jdk-8
 
-buildAndTest:
+cache:
+  paths:
+    - .m2/
+    - .gradle/
+
+buildAndTestBackend:
   script:
     - backend/cookify/mvn verify --batch-mode
   artifacts:
@@ -8,7 +13,32 @@ buildAndTest:
       - backend/cookify/target/*
     expire_in: 5min
 
-    
 variables:
   GIT_SSL_NO_VERIFY: "1"
+  GIT_SSL_NO_VERIFY: "1"
+  ANDROID_COMPILE_SDK: "28"
+  ANDROID_BUILD_TOOLS: "28.0.2"
+  ANDROID_SDK_TOOLS: "28.0.2"
 
+before_script:
+  - export ANDROID_HOME="$HOME/Library/Android/sdk"
+  - bundle install
+
+stages:
+  - build
+  - test
+
+build_mobile:
+  stage: build
+  image: openjdk:8-jdk
+  script:
+    - ./gradlew assembleDebug
+  artifacts:
+    paths:
+    - android/outputs/
+
+unitTests:
+  stage: test
+  image: openjdk:8-jdk
+  script:
+    - ./gradlew test

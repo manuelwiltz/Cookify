@@ -20,7 +20,7 @@ import at.a5bhitm.cookify.cookify.R;
 import at.a5bhitm.cookify.cookify.activities.RecipeDetailActivity;
 import at.a5bhitm.cookify.cookify.entities.Drink;
 
-public class RecycleViewAdapterDrink extends RecyclerView.Adapter<RecycleViewAdapterDrink.MyViewHolder> {
+public class RecycleViewAdapterDrink extends RecyclerView.Adapter<RecycleViewAdapterDrink.MyViewHolderDrink> {
 
     private Context context;
     private List<Drink> data;
@@ -35,12 +35,12 @@ public class RecycleViewAdapterDrink extends RecyclerView.Adapter<RecycleViewAda
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolderDrink onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.drink_row_item, parent, false);
 
-        final MyViewHolder viewHolder = new MyViewHolder(view);
+        final MyViewHolderDrink viewHolder = new MyViewHolderDrink(view);
         viewHolder.view_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +60,7 @@ public class RecycleViewAdapterDrink extends RecyclerView.Adapter<RecycleViewAda
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolderDrink holder, int position) {
         holder.tv_title.setText(data.get(position).getTitle());
         holder.tv_time_sum.setText(data.get(position).getTime());
         holder.tv_subtitle.setText(data.get(position).getSubtitle());
@@ -73,7 +73,7 @@ public class RecycleViewAdapterDrink extends RecyclerView.Adapter<RecycleViewAda
         return data.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolderDrink extends RecyclerView.ViewHolder {
         TextView tv_title;
         TextView tv_time_sum;
         TextView tv_subtitle;
@@ -81,7 +81,7 @@ public class RecycleViewAdapterDrink extends RecyclerView.Adapter<RecycleViewAda
 
         LinearLayout view_container;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolderDrink(View itemView) {
             super(itemView);
             view_container = itemView.findViewById(R.id.drink_row_item_container);
 

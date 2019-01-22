@@ -112,11 +112,45 @@
         android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
-            android:id="@+id/recipe_detail_description"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Recipe Desciption" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/recipe_detail_ingredients_headline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/zutaten"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/recipe_detail_ingredients_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:id="@+id/recipe_detail_description_horizontal_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightgray"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/recipe_detail_cooking_headline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/zubereitung"
+                android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/recipe_detail_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Recipe Desciption" />
+
+        </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 

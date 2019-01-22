@@ -55,7 +55,7 @@ public class DrinkDetailActivity extends AppCompatActivity {
         tv_name.setText(name);
         tv_subtitle.setText(category);
         tv_description.setText(description);
-        tv_time.setText("10 min");
+        tv_time.setText(time);
 
         collapsingToolbarLayout.setTitle(name);
 

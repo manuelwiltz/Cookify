@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +14,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.Collections;
 import java.util.List;
 
 import at.a5bhitm.cookify.cookify.activities.RecipeDetailActivity;
 import at.a5bhitm.cookify.cookify.R;
 import at.a5bhitm.cookify.cookify.entities.Recipe;
 
-public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAdapterRecipe.MyViewHolder> {
+public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAdapterRecipe.MyViewHolderRecipe> {
 
     private Context context;
     private List<Recipe> recipes;
@@ -37,12 +35,12 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyViewHolderRecipe onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
         LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.recipe_row_item, parent, false);
 
-        final MyViewHolder viewHolder = new MyViewHolder(view);
+        final MyViewHolderRecipe viewHolder = new MyViewHolderRecipe(view);
         viewHolder.view_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,11 +60,6 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
                 }
                 i.putExtra("steps", strings);
 
-                /*Log.d("GEEHHT NEEED", Integer.toString(recipes.get(viewHolder.getAdapterPosition()).getSteps().size()));
-                for (int j = 0; j < recipes.get(viewHolder.getAdapterPosition()).getSteps().size(); j++) {
-                    Log.d("STEPS", "Steps: " + j);
-                }*/
-
                 context.startActivity(i);
             }
         });
@@ -75,7 +68,7 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolderRecipe holder, int position) {
         holder.tv_title.setText(recipes.get(position).getTitle());
         holder.tv_time_sum.setText(recipes.get(position).getTime_sum());
         holder.tv_subtitle.setText(recipes.get(position).getSubtitle());
@@ -88,7 +81,7 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
         return recipes.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolderRecipe extends RecyclerView.ViewHolder {
         TextView tv_title;
         TextView tv_time_sum;
         TextView tv_subtitle;
@@ -96,7 +89,7 @@ public class RecycleViewAdapterRecipe extends RecyclerView.Adapter<RecycleViewAd
 
         LinearLayout view_container;
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolderRecipe(View itemView) {
             super(itemView);
             view_container = itemView.findViewById(R.id.recipe_row_item_container);
 

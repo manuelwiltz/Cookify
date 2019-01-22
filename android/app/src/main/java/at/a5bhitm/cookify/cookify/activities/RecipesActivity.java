@@ -27,11 +27,12 @@ import java.util.List;
 
 import at.a5bhitm.cookify.cookify.R;
 import at.a5bhitm.cookify.cookify.adapters.RecycleViewAdapterRecipe;
+import at.a5bhitm.cookify.cookify.entities.Ingredient;
 import at.a5bhitm.cookify.cookify.entities.Recipe;
 
 public class RecipesActivity extends AppCompatActivity {
 
-    private final String JSON_URL = "http://172.18.119.157:8080/recipe";
+    private final String JSON_URL = "http://192.168.0.4:8080/recipe";
     private JsonArrayRequest request;
     private JsonArrayRequest search_request;
     private RequestQueue requestQueue;
@@ -79,7 +80,6 @@ public class RecipesActivity extends AppCompatActivity {
                                     recipe.setTime_sum(jsonObject.getString("time_sum"));
                                     recipe.setTime_cook(jsonObject.getString("time_cook"));
                                     recipe.setDescription(jsonObject.getString("description"));
-                                    //recipe.setSteps((List<String>) jsonObject.getJSONArray("steps"));
                                     recipes.add(recipe);
 
                                 } catch (JSONException e) {
@@ -137,8 +137,16 @@ public class RecipesActivity extends AppCompatActivity {
                         for (int j = 0; j < array.length(); j++) {
                             helpSteps.add(array.getString(j));
                         }
-
                         recipe.setSteps(helpSteps);
+
+                        JSONArray ingredientsArray = jsonObject.getJSONArray("ingredients");
+                        List<Ingredient> ingredients = new ArrayList<>(ingredientsArray.length());
+                        for (int j = 0; j < ingredientsArray.length(); j++) {
+                            // DOES NOT WORK. GET ALL VALUES AND SET IT TO NEW INGREDIENT
+                            //ingredients.add((Ingredient) ingredientsArray.get(j));
+                        }
+                        recipe.setIngredients(ingredients);
+
                         recipes.add(recipe);
 
                     } catch (JSONException e) {
