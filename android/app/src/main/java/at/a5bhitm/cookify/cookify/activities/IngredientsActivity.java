@@ -32,7 +32,8 @@ import at.a5bhitm.cookify.cookify.entities.Ingredient;
 
 public class IngredientsActivity extends AppCompatActivity {
 
-    private final String JSON_URL = "http://192.168.0.4:8080/ingredient";
+    private final String JSON_URL = "http://192.168.0.5:8080/ingredient";
+    //private final String JSON_URL = "http://192.168.0.4:8080/ingredient";
     private JsonArrayRequest request;
     private JsonArrayRequest search_request;
     private RequestQueue requestQueue;
@@ -57,14 +58,8 @@ public class IngredientsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /**
-                 * Switch to new Intent and request REST call for recipes by ingredients
-                 */
                 for (int i = 0; i < ingredients.size(); i++) {
                     Ingredient in = (Ingredient) ingredients.get(i);
-                    /**
-                     * Is not working 😂😂
-                     */
                     if (in.getSelected() ) {
                         Log.d("IngredientsActivity", in.getName());
                     }

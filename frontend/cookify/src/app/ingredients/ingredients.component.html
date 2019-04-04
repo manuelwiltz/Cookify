@@ -1,0 +1,18 @@
+<div class="container z-depth-2">
+  <div class="row margin-md-top" style="padding-bottom: 10px;">
+    <div class="col s12 m12">
+      <h5>Zutaten auswählen</h5>
+
+      <div class="input-field col s12">
+        <select multiple>
+          <option value="" disabled selected>Wähle deine Zutaten</option>
+          <option *ngFor="let i of ingredients" value="{{i.name}}">{{i.name}}</option>
+        </select>
+      </div>
+
+      <hr>
+      <h5>Rezepte</h5>
+
+    </div>
+  </div>
+</div>

@@ -1,7 +1,9 @@
 package at.a5bhitm.cookify.cookify.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -10,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.provider.Settings.Secure;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity
         drinksCard.setOnClickListener(this);
         favoriteCard.setOnClickListener(this);
         settingsCard.setOnClickListener(this);
+
+        saveDeviceId();
     }
 
     @Override
@@ -147,4 +152,9 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @SuppressLint("MissingPermission")
+    public void saveDeviceId() {
+    }
+
 }

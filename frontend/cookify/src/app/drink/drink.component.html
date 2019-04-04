@@ -1,0 +1,72 @@
+<div class="container z-depth-2">
+  <div class="row margin-md-top" style="padding-bottom: 10px;">
+    <div class="col s12 m12">
+      <h4>{{drink.title}}</h4>
+      <div *ngIf="drink.subtitle">
+        <h6>{{drink.subtitle}}</h6>
+      </div>
+      <div *ngIf="drink.description">
+        <div *ngIf="drink.thumbnail_url; else noThumbnail">
+          <div class="row">
+            <div class="col s12 m4">
+              <p>
+                <img src="{{drink.thumbnail_url}}" class="responsive-img">
+              </p>
+            </div>
+            <div class="col s12 m8">
+              <p>
+                <b>Beschreibung: </b><br>
+                {{drink.description}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <ng-template #noThumbnail>
+          <div class="col s12 m12">
+            <p>
+              <b>Beschreibung: </b><br>
+              {{drink.description}}
+            </p>
+          </div>
+        </ng-template>
+      </div>
+
+      <hr>
+
+      
+      <div *ngIf="drink.time">
+        <p>
+          <b>Gesamte Zeit:</b> {{drink.time}}
+        </p>
+      </div>
+
+      <div *ngIf="drink.ingredients">
+          <hr>
+          <p><b>Zutaten:</b></p>
+          <ul>
+            <li style="list-style-type: initial; margin-left: 20px;" *ngFor="let i of drink.ingredients">{{i.amount}} {{i.name}}</li>
+          </ul>
+        </div>
+      
+      <div *ngIf="drink.steps">
+        <hr>
+        <p><b>Kurzanleitung:</b></p>
+        <ul>
+          <li style="list-style-type: initial; margin-left: 20px;" *ngFor="let s of drink.steps">{{s}}</li>
+        </ul>
+      </div>
+      <hr>
+      <div>
+        <a class="waves-effect waves-light btn add-icon lighten-1" style="margin-right: 5px;" (click)="update()">
+          <i class="material-icons right">edit</i>
+          Drink bearbeiten
+        </a>
+        <a class="waves-effect waves-light btn add-icon lighten-1" style="margin-right: 5px;" (click)="delete()">
+          <i class="material-icons right">delete</i>
+          Drink löschen
+        </a>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

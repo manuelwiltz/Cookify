@@ -22,7 +22,7 @@ public class ViewPagerFragment extends Fragment {
 
     @SuppressLint("ValidFragment")
     public ViewPagerFragment(String step) {
-        //textView = (TextView) getView().findViewById(R.id.step_fragment_text);
+        textView = (TextView) getView().findViewById(R.id.step_fragment_text);
     }
 
     @Nullable

@@ -1,0 +1,40 @@
+<div class="container z-depth-2">
+    <div class="row margin-md-top">
+      <form class="col s12">
+        <div class="row">
+          <h5 class="center-align">Rezept bearbeiten</h5>
+          <div class="input-field col s6">
+            <input id="title" name="title" type="text" class="validate" [(ngModel)]="recipe.title" placeholder="Titel">
+            <label for="title" class="active">Titel*</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="subtitle" name="subtitle" type="text" class="validate" [(ngModel)]="recipe.subtitle"
+                   placeholder="Subtitel">
+            <label for="subtitle" class="active">Subtitel</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="time_cook" name="time_cook" type="text" class="validate" [(ngModel)]="recipe.time_cook" placeholder="Kochzeit">
+            <label for="time_cook" class="active">Kochzeit</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="time_sum" name="time_sum" type="text" class="validate" [(ngModel)]="recipe.time_sum" placeholder="Gesamtzeit">
+              <label for="time_sum" class="active">Gesamtzeit</label>
+            </div>
+          <div class="input-field col s12">
+            <input id="description" name="description" type="text" class="validate" [(ngModel)]="recipe.description"
+                   placeholder="Beschreibung">
+            <label for="description" class="active">Beschreibung</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="thumbnail" name="thumbnail" type="text" class="validate" [(ngModel)]="recipe.thumbnail_url"
+                   placeholder="Thumbnail URL">
+            <label for="thumbnail" class="active">Thumbnail URL</label>
+          </div>
+        </div>
+        <div class="row">
+          <a class="waves-effect waves-light btn add-icon" (click)="updateRecipe()">Updaten</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  

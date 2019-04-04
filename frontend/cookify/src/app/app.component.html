@@ -1,0 +1,20 @@
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/dashboard" class="brand-logo" style="line-height: 70px; margin-left: 10px;">
+      Cookify
+    </a>
+    <a routerLink="/drinkDashboard" class="brand-logo" style="line-height: 70px; margin-left: 150px;">
+      Drinks
+    </a>
+    <a routerLink="/ingredients" class="brand-logo" style="line-height: 70px; margin-left: 270px;">
+      Ingredients
+    </a>
+    <div class="nav-content">
+      <a class="btn-floating btn-large halfway-fab waves-effect waves-light teal" (click)="createRecipe()">
+        <i class="material-icons waves-effect waves-light add-icon">add</i>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

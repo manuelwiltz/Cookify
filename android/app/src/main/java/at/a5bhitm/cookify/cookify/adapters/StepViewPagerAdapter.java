@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import at.a5bhitm.cookify.cookify.R;
@@ -14,6 +15,7 @@ public class StepViewPagerAdapter extends FragmentStatePagerAdapter {
 
     public int count;
     public String[] steps;
+    TextView textView;
 
     public StepViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -28,6 +30,7 @@ public class StepViewPagerAdapter extends FragmentStatePagerAdapter {
         } else {
             return new ViewPagerFragment();
         }*/
+        // textView = (TextView) getView().findViewById(R.id.step_fragment_text);
         return new ViewPagerFragment(steps[position]);
     }
 

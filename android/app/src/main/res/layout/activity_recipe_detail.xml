@@ -125,6 +125,11 @@
                 android:textSize="18dp"/>
 
             <TextView
+                android:id="@+id/recipe_detail_ingredients_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <TextView
                 android:id="@+id/recipe_detail_ingredients_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

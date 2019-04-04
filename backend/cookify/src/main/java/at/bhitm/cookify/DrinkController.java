@@ -21,6 +21,11 @@ public class DrinkController {
         return repository.findAll();
     }
 
+    @GetMapping("/getById/{id}")
+    public Drink findById(@PathVariable String id) {
+        return repository.findById(id).orElse(null);
+    }
+
     @GetMapping("/getByTitle/{title}")
     public List<Drink> findByTitleLike(@PathVariable String title) {
         return repository.findByTitleLike(title);
@@ -29,6 +34,7 @@ public class DrinkController {
     @GetMapping("/insertTestData")
     public List<Drink> insertTestData() {
 
+        /*
         Drink d = new Drink();
         d.setId("sdhkfskjdh398z598z");
         d.setTitle("Grüner Smoothie");
@@ -87,9 +93,177 @@ public class DrinkController {
             add("This is Step 4 of 5.");
             add("This is Step 5 of 5.");
         }});
+        */
 
-        repository.save(d);
-        repository.save(d1);
+        Drink d2 = new Drink();
+
+        d2.setId("sadjhzdzta");
+
+        d2.setTitle("Tequila Sunrise");
+
+        d2.setSubtitle("Ein Klassiker");
+
+        d2.setThumbnail_url("https://www.gutekueche.at/img/rezept/18096/tequila-sunrise.jpg");
+
+        d2.setIngredients(new ArrayList<Ingredient>() {{
+
+            add(new Ingredient("Tequila", "4cl"));
+
+            add(new Ingredient("Zitronensaft", "1cl"));
+
+            add(new Ingredient("Orangensaft", "11cl"));
+
+            add(new Ingredient("Grenadine", "1cl"));
+
+        }});
+
+        d2.setTime("5 min");
+
+        d2.setDescription("Den Shaker mit 5 Eiswürfeln füllen, alle Zutaten bis auf Grenadine dazu geben und kräftig schütteln. (15 Sek.)\n" +
+
+                "\n" +
+
+                "In ein Longdrinkglas einige Crushed Ice geben und den Drink durch ein Barsieb dazugießen. Die Grenadine vorsichtig über einen Löffelrücken in das Glas gießen.\n" +
+
+                "Nicht umrühren, warten bis der Sirup auf dem Glasboden ist und anschliessend mit Strohhalm und einer Zitronenscheibe servieren.");
+
+        d2.setSteps(new ArrayList<String>() {{
+
+            add("This is Step 1.");
+
+            add("This is Step 2.");
+
+            add("This is Step 3.");
+
+        }});
+
+
+
+
+        Drink d3 = new Drink();
+
+        d3.setId("lhjagdasd");
+
+        d3.setTitle("Banana Flip");
+
+        d3.setSubtitle("Ein wunderbares Dessert Rezept.");
+
+        d3.setThumbnail_url("https://www.gutekueche.at/img/rezept/18254/18254_banana-flip.jpg");
+
+        d3.setIngredients(new ArrayList<Ingredient>() {{
+
+            add(new Ingredient("Zitrone", "1 Stk"));
+
+            add(new Ingredient("Bananen(reif)", "2 Stk"));
+
+            add(new Ingredient("Buttermilch", "	1L"));
+
+            add(new Ingredient("Zucker", "etwas"));
+
+        }});
+
+        d3.setTime("3 min");
+
+        d3.setDescription("Die geschälten und in Stücke geschnittenen Bananen in einen Elektromixer geben und mit der kalten Buttermilch kräftig mixen.\n" +
+
+                        "Das fertige Getränk mit etwas Zucker und Zitronensaft abschmecken. Das Getränk in Longdrinkgläser füllen.");
+
+        d3.setSteps(new ArrayList<String>() {{
+
+            add("This is Step 1.");
+
+            add("This is Step 2.");
+
+        }});
+
+
+
+
+
+        Drink d4 = new Drink();
+
+        d4.setId("iouhiusad");
+
+        d4.setTitle("Frozen Peach");
+
+        d4.setSubtitle("Der Frozen Peach ist ein fruchtiger Shake, der durch die Pfirsiche eine schmackhafte Süße bekommt.");
+
+        d4.setThumbnail_url("https://www.gutekueche.at/img/rezept/17949/frozen-peach.jpg");
+
+        d4.setIngredients(new ArrayList<Ingredient>() {{
+
+            add(new Ingredient("Mangosirup", "2 cl"));
+
+            add(new Ingredient("Orangensaft", "10 cl"));
+
+            add(new Ingredient("Pfirsich", "2 Stk"));
+
+            add(new Ingredient("Crushed Ice", "1/4 L"));
+
+        }});
+
+        d4.setTime("6 min");
+
+        d4.setDescription("Pfirsiche waschen, schälen und entkernen und mit Crushed Ice auffüllen und pürieren.\n" +
+
+                        "Mit Orangensaft und Mangosirup aufgießen, nochmal gut durchmixen und in ein Cocktailglas oder Sektglas geben.");
+
+        d4.setSteps(new ArrayList<String>() {{
+
+            add("This is Step 1.");
+
+            add("This is Step 2.");
+
+        }});
+
+
+
+
+        Drink d5 = new Drink();
+
+        d5.setId("basdjhgas");
+
+        d5.setTitle("Orangen-Buttermilch-Shake");
+
+        d5.setSubtitle("Ein Orangen-Buttermilch-Shake ist ein Ausgleichsshake vom stressigen Alltag.");
+
+        d5.setThumbnail_url("https://www.gutekueche.at/img/rezept/18031/orangen-buttermilch-shake_.jpg");
+
+        d5.setIngredients(new ArrayList<Ingredient>() {{
+
+            add(new Ingredient("Orangensaft gepresst", "4 Stk"));
+
+            add(new Ingredient("Grapefruitsaft gepresst", "2 Stk"));
+
+            add(new Ingredient("Orange", "1 Stk"));
+
+            add(new Ingredient("Buttermilch", "400 ml"));
+
+            add(new Ingredient("Vanillinzucker", "15 g"));
+            add(new Ingredient("Zucker", "75 g"));
+        }});
+
+
+        d5.setTime("5 min");
+
+        d5.setDescription("Gut gekühlte Buttermilch, Säfte und Zucker im Mixer verquirlen und in vier Gläser füllen.\n" +
+
+                        "Orange in Spalten schneiden und auf den Glasrand stecken. Sofort servieren.");
+
+        d5.setSteps(new ArrayList<String>() {{
+
+            add("This is Step 1.");
+
+            add("This is Step 2.");
+
+        }});
+
+
+
+        repository.save(d2);
+        repository.save(d3);
+        repository.save(d4);
+        repository.save(d5);
 
         return repository.findAll();
 
